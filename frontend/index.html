@@ -1,0 +1,337 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block asosiy %}
+
+
+<!-- navigation -->
+<header class="sticky-top bg-white border-bottom border-default">
+   <div class="container">
+
+      <nav class="navbar navbar-expand-lg navbar-white">
+         <a class="navbar-brand" href="index.html">
+            <img class="img-fluid" width="150px" src="{% static 'images/logo.png' %}" alt="LogBook">
+         </a>
+         <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+            <i class="ti-menu"></i>
+         </button>
+
+         <div class="collapse navbar-collapse text-center" id="navigation">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                     aria-expanded="false">
+                     homepage <i class="ti-angle-down ml-1"></i>
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="index-full.html">Homepage Full Width</a>
+                     <a class="dropdown-item" href="index-full-left.html">Homepage Full With Left Sidebar</a>
+                     <a class="dropdown-item" href="index-full-right.html">Homepage Full With Right Sidebar</a>
+                     <a class="dropdown-item" href="index-list.html">Homepage List Style</a>
+                     <a class="dropdown-item" href="index-list-left.html">Homepage List With Left Sidebar</a>
+                     <a class="dropdown-item" href="index-list-right.html">Homepage List With Right Sidebar</a>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/about/">About</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/contact/">Contact</a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                     aria-expanded="false">Pages <i class="ti-angle-down ml-1"></i>
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="/author/">Author</a>
+                     <a class="dropdown-item" href="/post-details-1/">Post Details 1</a>
+                     <a class="dropdown-item" href="/post-details-2/">Post Details 2</a>
+                     <a class="dropdown-item" href="/post-elements/">Post Elements</a>
+                     <a class="dropdown-item" href="/privacy-policy/">Privacy Policy</a>
+                     <a class="dropdown-item" href="/terms-conditions/">Terms Conditions</a>
+                  </div>
+               </li>
+            </ul>
+            
+            <select class="m-2 border-0" id="select-language">
+               <option id="en" value="about/" selected>En</option>
+               <option id="fr" value="fr/about/">Fr</option>
+            </select>
+
+            <!-- search -->
+            <div class="search px-4">
+               <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+               <div class="search-wrapper">
+                  <form action="javascript:void(0)" class="h-100">
+                     <input class="search-box pl-4" id="search-query" name="s" type="search" placeholder="Type &amp; Hit Enter...">
+                  </form>
+                  <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+               </div>
+            </div>
+
+         </div>
+      </nav>
+   </div>
+</header>
+<!-- /navigation -->
+
+<section class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8  mb-5 mb-lg-0">{% for post in posts %}
+				<article class="row mb-5">
+					<div class="col-12">
+						<div class="post-slider">
+							<img loading="lazy" src="{{ post.img1 }}" class="img-fluid" alt="post-thumb">
+							<img loading="lazy" src="{{ post.img2 }}" class="img-fluid" alt="post-thumb">
+							<img loading="lazy" src="{{ post.img3 }}" class="img-fluid" alt="post-thumb">
+						</div>
+					</div>
+					<div class="col-12 mx-auto">
+						<h3><a class="post-title" href="post-elements.html">{{ post.name }}</a></h3>
+						<ul class="list-inline post-meta mb-4">
+							<li class="list-inline-item"><i class="ti-user mr-2"></i>
+								<a href="author.html">{{ post.use }}</a>
+							</li>
+							<li class="list-inline-item">{{ post.date }}</li>
+							<li class="list-inline-item">Categories : <a href="#!" class="ml-1">{{post.categories}} </a>
+							</li>
+							<li class="list-inline-item">Tags : <a href="#!" class="ml-1">Photo </a> ,<a href="#!" class="ml-1">Image </a>
+							</li>
+						</ul>
+						<p>{{ post.content }}</p> <a href="post-elements.html" class="btn btn-outline-primary">Continue Reading</a>
+					</div>
+				</article>{% endfor %}
+            
+            {% for tpost in tposts%}
+				<article class="row mb-5">
+					<div class="col-12">
+						<div class="post-slider">
+							<img loading="lazy" src="{{ tpost.img }}" class="img-fluid" alt="post-thumb">
+						</div>
+					</div>
+					<div class="col-12 mx-auto">
+						<h3><a class="post-title" href="post-details-1.html">{{ tpost.name }}</a></h3>
+						<ul class="list-inline post-meta mb-4">
+							<li class="list-inline-item"><i class="ti-user mr-2"></i><a href="author.html">{{ tpost.use }}</a>
+							</li>
+							<li class="list-inline-item">{{ tpost.date }}</li>
+							<li class="list-inline-item">Categories : <a href="#!" class="ml-1">{{ tpost.categories }} </a>
+							</li>
+							<li class="list-inline-item">Tags : <a href="#!" class="ml-1">Photo </a> ,<a href="#!" class="ml-1">Image </a>
+							</li>
+						</ul>
+						<p>{{ tpost.content }}</p> <a href="post-details-1.html" class="btn btn-outline-primary">Continue Reading</a>
+					</div>
+				</article>
+            {% endfor %}
+
+            {% for mpost in mposts %}
+				<article class="row mb-5">
+					<div class="col-12">
+						<div class="post-slider">
+							<img loading="lazy" src="{{ mpost.img1 }}" class="img-fluid" alt="post-thumb">
+							<img loading="lazy" src="{{ mpost.img2}}" class="img-fluid" alt="post-thumb">
+						</div>
+					</div>
+					<div class="col-12 mx-auto">
+						<h3><a class="post-title" href="post-details-2.html">{{ mpost.name }}</a></h3>
+						<ul class="list-inline post-meta mb-4">
+							<li class="list-inline-item"><i class="ti-user mr-2"></i><a href="author.html">{{ mpost.use}}</a>
+							</li>
+							<li class="list-inline-item">{{ mpost.date }}</li>
+							<li class="list-inline-item">Categories : <a href="#!" class="ml-1">{{ mpost.categories }}</a>
+							</li>
+							<li class="list-inline-item">Tags : <a href="#!" class="ml-1">Booth </a> ,<a href="#!" class="ml-1">Image </a>
+							</li>
+						</ul>
+						<p>{{ mpost.content }}</p> <a href="post-details-2.html" class="btn btn-outline-primary">Continue Reading</a>
+					</div>
+				</article>
+            {% endfor %}
+				<!-- <article class="row mb-5">
+					<div class="col-12">
+						<div class="post-slider">
+							<img loading="lazy" src="{% static 'images/post/post-3.jpg' %}" class="img-fluid" alt="post-thumb">
+						</div>
+					</div>
+					<div class="col-12 mx-auto">
+						<h3><a class="post-title" href="post-details-2.html">Cheerful Loving Couple Bakers Drinking Coffee</a></h3>
+						<ul class="list-inline post-meta mb-4">
+							<li class="list-inline-item"><i class="ti-user mr-2"></i><a href="author.html">John Doe</a>
+							</li>
+							<li class="list-inline-item">Date : March 14, 2020</li>
+							<li class="list-inline-item">Categories : <a href="#!" class="ml-1">Videography </a>
+							</li>
+							<li class="list-inline-item">Tags : <a href="#!" class="ml-1">Video </a> ,<a href="#!" class="ml-1">Image </a>
+							</li>
+						</ul>
+						<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least. Producing creative, fresh projects is the key to standing out.</p> <a href="post-details-2.html" class="btn btn-outline-primary">Continue Reading</a>
+					</div>
+				</article>
+				<article class="row mb-5">
+					<div class="col-12">
+						<div class="post-slider">
+							<img loading="lazy" src="{% static 'images/post/post-4.jpg' %}" class="img-fluid" alt="post-thumb">
+							<img loading="lazy" src="{% static 'images/post/post-1.jpg' %}" class="img-fluid" alt="post-thumb">
+						</div>
+					</div>
+					<div class="col-12 mx-auto">
+						<h3><a class="post-title" href="post-details-1.html">Cheerful Loving Couple Bakers Drinking Coffee</a></h3>
+						<ul class="list-inline post-meta mb-4">
+							<li class="list-inline-item"><i class="ti-user mr-2"></i><a href="author.html">John Doe</a>
+							</li>
+							<li class="list-inline-item">Date : March 14, 2020</li>
+							<li class="list-inline-item">Categories : <a href="#!" class="ml-1">Four seasone </a>
+							</li>
+							<li class="list-inline-item">Tags : <a href="#!" class="ml-1">Seasone </a>
+								,<a href="#!" class="ml-1">New </a>
+							</li>
+						</ul>
+						<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least. Producing creative, fresh projects is the key to standing out.</p> <a href="post-details-1.html" class="btn btn-outline-primary">Continue Reading</a>
+					</div>
+				</article>
+				<article class="row mb-5">
+					<div class="col-12">
+						<div class="post-slider">
+							<img loading="lazy" src="{% static 'images/post/post-5.jpg' %}" class="img-fluid" alt="post-thumb">
+						</div>
+					</div>
+					<div class="col-12 mx-auto">
+						<h3><a class="post-title" href="post-details-1.html">Cheerful Loving Couple Bakers Drinking Coffee</a></h3>
+						<ul class="list-inline post-meta mb-4">
+							<li class="list-inline-item"><i class="ti-user mr-2"></i><a href="author.html">John Doe</a>
+							</li>
+							<li class="list-inline-item">Date : March 14, 2020</li>
+							<li class="list-inline-item">Categories : <a href="#!" class="ml-1">Newyork city </a>
+							</li>
+							<li class="list-inline-item">Tags : <a href="#!" class="ml-1">City </a> ,<a href="#!" class="ml-1">Photo </a>
+							</li>
+						</ul>
+						<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least. Producing creative, fresh projects is the key to standing out.</p> <a href="post-details-1.html" class="btn btn-outline-primary">Continue Reading</a>
+					</div>
+				</article>
+				<article class="row mb-5">
+					<div class="col-12 mx-auto">
+						<h3><a class="post-title" href="post-details-2.html">Cheerful Loving Couple Bakers Drinking Coffee</a></h3>
+						<ul class="list-inline post-meta mb-4">
+							<li class="list-inline-item"><i class="ti-user mr-2"></i><a href="author.html">John Doe</a>
+							</li>
+							<li class="list-inline-item">Date : March 14, 2020</li>
+							<li class="list-inline-item">Categories : <a href="#!" class="ml-1">Newyork city </a>
+							</li>
+							<li class="list-inline-item">Tags : <a href="#!" class="ml-1">City </a> ,<a href="#!" class="ml-1">Photo </a>
+							</li>
+						</ul>
+						<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least. Producing creative, fresh projects is the key to standing out.</p> <a href="post-details-2.html" class="btn btn-outline-primary">Continue Reading</a>
+					</div>
+				</article> -->
+			</div>
+			<aside class="col-lg-4">
+				   <!-- Search -->
+   <div class="widget">
+      <h5 class="widget-title"><span>Search</span></h5>
+      <form action="/logbook-hugo/search" class="widget-search">
+         <input id="search-query" name="s" type="search" placeholder="Type &amp; Hit Enter...">
+         <button type="submit"><i class="ti-search"></i>
+         </button>
+      </form>
+   </div>
+   <!-- categories -->
+   <div class="widget">
+      <h5 class="widget-title"><span>Categories</span></h5>
+      {% for cpost in cposts %}
+      <ul class="list-unstyled widget-list">
+         <li><a href="#!" class="d-flex">{{ cpost.turi1 }}
+               <small class="ml-auto">{{ cpost.soni1}}</small></a>
+         </li>
+         <li><a href="#!" class="d-flex">{{ cpost.turi2 }}
+               <small class="ml-auto">{{ cpost.soni2 }}</small></a>
+         </li>
+         <li><a href="#!" class="d-flex">{{ cpost.turi3 }}
+               <small class="ml-auto">{{ cpost.soni3 }}</small></a>
+         </li>
+         <li><a href="#!" class="d-flex">{{ cpost.turi4 }}
+               <small class="ml-auto">{{ cpost.soni4 }}</small></a>
+         </li>
+         <li><a href="#!" class="d-flex">{{ cpost.turi5 }}
+               <small class="ml-auto">{{ cpost.soni5}}</small></a>
+         </li>
+      </ul>
+      {% endfor %}
+   </div>
+   <!-- tags -->
+   <div class="widget">
+      <h5 class="widget-title"><span>Tags</span></h5>
+      <ul class="list-inline widget-list-inline">
+         <li class="list-inline-item"><a href="#!">Booth</a>
+         </li>
+         <li class="list-inline-item"><a href="#!">City</a>
+         </li>
+         <li class="list-inline-item"><a href="#!">Image</a>
+         </li>
+         <li class="list-inline-item"><a href="#!">New</a>
+         </li>
+         <li class="list-inline-item"><a href="#!">Photo</a>
+         </li>
+         <li class="list-inline-item"><a href="#!">Seasone</a>
+         </li>
+         <li class="list-inline-item"><a href="#!">Video</a>
+         </li>
+      </ul>
+   </div>
+   <!-- latest post -->
+   <div class="widget">
+      <h5 class="widget-title"><span>Latest Article</span></h5>
+      <!-- post-item -->
+      {% for lpost in lposts %}
+      <ul class="list-unstyled widget-list">
+         <li class="media widget-post align-items-center">
+            <a href="post-elements.html">
+               <img loading="lazy" class="mr-3" src="{{ lpost.img }}">
+            </a>
+            <div class="media-body">
+               <h5 class="h6 mb-0"><a href="post-elements.html">{{ lpost.content }}</a></h5>
+               <small>{{ lpost.date }}</small>
+            </div>
+         </li>
+      </ul>
+      {% endfor %}
+
+      <!-- <ul class="list-unstyled widget-list">
+         <li class="media widget-post align-items-center">
+            <a href="post-details-1.html">
+               <img loading="lazy" class="mr-3" src="{% static 'images/post/post-1.jpg' %}">
+            </a>
+            <div class="media-body">
+               <h5 class="h6 mb-0"><a href="post-details-1.html">Cheerful Loving Couple Bakers Drinking Coffee</a>
+               </h5>
+               <small>March 14, 2020</small>
+            </div>
+         </li>
+      </ul>
+      <ul class="list-unstyled widget-list">
+         <li class="media widget-post align-items-center">
+            <a href="post-details-2.html">
+               <img loading="lazy" class="mr-3" src="{% static 'images/post/post-2.jpg' %}">
+            </a>
+            <div class="media-body">
+               <h5 class="h6 mb-0"><a href="post-details-2.html">Cheerful Loving Couple Bakers Drinking Coffee</a>
+               </h5>
+               <small>March 14, 2020</small>
+            </div>
+         </li>
+      </ul> -->
+   </div>
+			</aside>
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock asosiy %}   
+
+
+  

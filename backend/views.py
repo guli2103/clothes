@@ -32,7 +32,10 @@ class Post1View(TemplateView):
     template_name = 'post-details-1.html'
 
 class Post2View(TemplateView):
-    template_name = 'post-details-2.html'           
+    template_name = 'post-details-2.html' 
+
+class PostelView(TemplateView):
+    template_name = 'post-elements.html'              
 
 
 

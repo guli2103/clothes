@@ -9,4 +9,5 @@ urlpatterns = [
     path('author/', AuthorView.as_view()),
     path('post-details-1/', Post1View.as_view()),
     path('post-details-2/', Post2View.as_view()),
+    path('post-elements/', PostelView.as_view()),
 ]

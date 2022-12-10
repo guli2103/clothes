@@ -10,4 +10,6 @@ urlpatterns = [
     path('post-details-1/', Post1View.as_view()),
     path('post-details-2/', Post2View.as_view()),
     path('post-elements/', PostelView.as_view()),
+    path('privacy-policy/', PrivacyView.as_view()),
+    path('terms-conditions/', TermsView.as_view()),
 ]

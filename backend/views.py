@@ -35,7 +35,13 @@ class Post2View(TemplateView):
     template_name = 'post-details-2.html' 
 
 class PostelView(TemplateView):
-    template_name = 'post-elements.html'              
+    template_name = 'post-elements.html'  
+
+class PrivacyView(TemplateView):
+    template_name = 'privacy-policy.html'
+
+class TermsView(TemplateView):
+    template_name = 'terms-conditions.html'                    
 
 
 

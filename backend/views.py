@@ -53,7 +53,17 @@ class Indexfull(TemplateView):
     template_name = 'index-full.html'
 
 class Indexll(TemplateView):
-    template_name = 'index-list-left.html'                               
+    template_name = 'index-list-left.html'  
+
+class Indexlr(TemplateView):
+    template_name = 'index-list-right.html'  
+
+class Indexlist(TemplateView):
+    template_name = 'index-list.html'    
+
+
+
+
 
 
 

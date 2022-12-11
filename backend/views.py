@@ -50,7 +50,10 @@ class Indexfr(TemplateView):
     template_name = 'index-full-right.html'    
 
 class Indexfull(TemplateView):
-    template_name = 'index-full.html'                           
+    template_name = 'index-full.html'
+
+class Indexll(TemplateView):
+    template_name = 'index-list-left.html'                               
 
 
 

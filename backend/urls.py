@@ -15,5 +15,6 @@ urlpatterns = [
     path('index-full/', Indexfl.as_view()),
     path('index-full-left/', Indexfr.as_view()),
     path('index-full-right/', Indexfull.as_view()),
+    path('index-list-left/', Indexll.as_view()),
    
 ]

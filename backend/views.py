@@ -44,7 +44,13 @@ class TermsView(TemplateView):
     template_name = 'terms-conditions.html'
 
 class Indexfl(TemplateView):
-    template_name = 'index-full-left.html'                        
+    template_name = 'index-full-left.html' 
+
+class Indexfr(TemplateView):
+    template_name = 'index-full-right.html'    
+
+class Indexfull(TemplateView):
+    template_name = 'index-full.html'                           
 
 
 

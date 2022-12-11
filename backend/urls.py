@@ -13,4 +13,7 @@ urlpatterns = [
     path('privacy-policy/', PrivacyView.as_view()),
     path('terms-conditions/', TermsView.as_view()),
     path('index-full/', Indexfl.as_view()),
+    path('index-full-left/', Indexfr.as_view()),
+    path('index-full-right/', Indexfull.as_view()),
+   
 ]

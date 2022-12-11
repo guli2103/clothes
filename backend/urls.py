@@ -12,4 +12,5 @@ urlpatterns = [
     path('post-elements/', PostelView.as_view()),
     path('privacy-policy/', PrivacyView.as_view()),
     path('terms-conditions/', TermsView.as_view()),
+    path('index-full/', Indexfl.as_view()),
 ]

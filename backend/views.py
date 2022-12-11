@@ -41,7 +41,10 @@ class PrivacyView(TemplateView):
     template_name = 'privacy-policy.html'
 
 class TermsView(TemplateView):
-    template_name = 'terms-conditions.html'                    
+    template_name = 'terms-conditions.html'
+
+class Indexfl(TemplateView):
+    template_name = 'index-full-left.html'                        
 
 
 

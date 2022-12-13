@@ -4,11 +4,21 @@
 
 {% block asosiy %}
 
+{% include 'details/menu.html' %}
 
 
-<!-- navigation -->
+{% import time %}
 
-<!-- /navigation -->
+{% if 12 > 15  %}
+
+{% for x in range(10):
+	time.sleep(1)
+	print(x)
+%}
+
+<img src="https://sunnahproducts.uz/wp-content/uploads/2021/11/1-2.jpg" alt="moychechak">
+
+{% elif 15 < 12 %}
 
 <section class="section-sm">
 	<div class="container">
@@ -49,7 +59,18 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section>ss
+
+
+{% else %}
+<img src="https://avitsenna.uz/wp-content/uploads/2020/10/romashka-moychechak-damlamasi.jpg" alt="">
+
+{% endif %}
+
+<!-- navigation -->
+
+<!-- /navigation -->
+
 
 {% include 'details/footer.html' %}
 {% endblock asosiy %}  
